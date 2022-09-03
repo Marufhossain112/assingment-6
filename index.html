@@ -25,7 +25,7 @@
       <!-- header starts here -->
       <header class="d-flex justify-content-between mt-4">
         <nav>
-          <span class="news-title me-2">News</span>
+          <span class="heading me-2">News</span>
           <span class="news-today">Today</span>
         </nav>
         <nav>
@@ -43,18 +43,66 @@
         </div>
       </section>
 
+      <!-- modal -->
+      <section class="modal-section">
+        <!-- Button trigger modal -->
+      
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="newsModal"
+          tabindex="-1"
+          aria-labelledby="newsModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 id="modal-title" class="modal-title" id="newsModalLabel">Modal title</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div id="modal-body" class="modal-body"></div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- display news here -->
       <section class="displayNews">
         <div id="display-news" class="pt-5">
-          <div class="card mb-3 border-0 shadow-lg rounded-3">
+          <!-- <div
+            id="news-item"
+            class="card mb-3 border-0 shadow-lg rounded-3 d-none"
+          >
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="..." />
+                <img
+                  id="news-img"
+                  style="height: 250px; width: 250px"
+                  src=""
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
+                  <h5 id="news-heading" class="card-title">Card title</h5>
+                  <p id="news-text" class="card-text">
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content. This content is a little bit
                     longer.
@@ -64,7 +112,7 @@
                       <div class="me-2">
                         <img
                           style="height: 30px; border-radius: 50%; width: 30px"
-                          src="./img/messi.jpeg"
+                          src=""
                           alt=""
                         />
                       </div>
@@ -82,12 +130,17 @@
                 </div>
               </div>
             </div>
-          </div>
-         
+          </div> -->
         </div>
       </section>
     </div>
 
+    <!-- bootstrap js link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
     <!-- js file link -->
     <script src="./js/news.js"></script>
   </body>
