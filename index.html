@@ -43,12 +43,23 @@
         </div>
       </section>
 
+      <!-- spinner section -->
+      <div
+        style="height: 400px"
+        id="spinner-icon"
+        class="d-flex justify-content-center align-items-center d-none"
+      >
+        <div
+          class="spinner-grow"
+          style="width: 3rem; height: 3rem"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
       <!-- modal -->
       <section class="modal-section">
-        <!-- Button trigger modal -->
-      
-
-        <!-- Modal -->
         <div
           class="modal fade"
           id="newsModal"
@@ -59,7 +70,9 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 id="modal-title" class="modal-title" id="newsModalLabel">Modal title</h5>
+                <h5 id="modal-title" class="modal-title" id="newsModalLabel">
+                  Modal title
+                </h5>
                 <button
                   type="button"
                   class="btn-close"
