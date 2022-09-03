@@ -4,6 +4,7 @@ const showCategory = async () => {
   const res = await fetch(url);
   const data = await res.json();
   loadCategory(data.data.news_category);
+  // console.log(data.data.news_category);
 };
 // add home li on the ul container
 const categoryContainer = document.getElementById("category-container");
@@ -62,7 +63,7 @@ const showCategoryData = async (category_id) => {
 
 // display news to the UI
 const loadCategoryData = (newses) => {
-  function compare(b,a) {
+  function compare(b, a) {
     if (a.total_view < b.total_view) {
       return -1;
     }
@@ -113,7 +114,7 @@ const loadCategoryData = (newses) => {
             </div>
             <div id="views">
               <div class="count-people">
-                <i class="fa-regular fa-eye me-2"></i> 1.5M
+                <i class="fa-regular fa-eye me-2"></i> ${news.total_view}
               </div>
             </div>
             <button id="show-details" class="btn btn-primary ms-5" onclick="showNewsDetails('${
