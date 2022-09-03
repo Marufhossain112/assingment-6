@@ -1,24 +1,29 @@
+// fetch api data for categories
 const showCategory = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
   const res = await fetch(url);
   const data = await res.json();
   loadCategory(data.data.news_category);
 };
+// add home li on the ul container
 const categoryContainer = document.getElementById("category-container");
-
 const newLi = document.createElement("li");
+newLi.classList.add("mx-4");
 newLi.innerText = "Home";
 categoryContainer.appendChild(newLi);
+
+// show categories by id
 const loadCategory = (categories) => {
   categories.forEach((category) => {
     categoryContainer.addEventListener("click", function (e) {
       if (e.target.innerText === category.category_name) {
-        toggleSpinner(true);
         // start the spinner
+        toggleSpinner(true);
         showCategoryData(category.category_id);
         showNewsCounter(category.category_id);
       }
     });
+    // create new li
     const newLi = document.createElement("li");
     newLi.classList.add("mx-4");
     newLi.innerText = `${category.category_name}`;
@@ -27,12 +32,13 @@ const loadCategory = (categories) => {
   });
 };
 
-// show News showNewsCounter
+// show News-Counter
 const showNewsCounter = async (count_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${count_id} `;
   const res = await fetch(url);
   const data = await res.json();
   loadNewsCounter(data.data);
+  // needToSort(data.data);
 };
 const newsCounter = document.getElementById("news-counter");
 const noMsgFound = document.getElementById("no-found-message");
@@ -54,11 +60,22 @@ const showCategoryData = async (category_id) => {
   loadCategoryData(data.data);
 };
 
+// display news to the UI
 const loadCategoryData = (newses) => {
+  function compare(b,a) {
+    if (a.total_view < b.total_view) {
+      return -1;
+    }
+    if (a.last_nom > b.last_nom) {
+      return 1;
+    }
+    return 0;
+  }
+  newses.sort(compare);
+  console.log(newses);
   const displayNews = document.getElementById("display-news");
   displayNews.textContent = "";
   newses.forEach((news) => {
-    // console.log(news);
     const newDiv = document.createElement("div");
     newDiv.classList.add("card", "my-5", "border-0", "shadow-lg", "rounded-3");
     newDiv.innerHTML = `
@@ -114,12 +131,13 @@ const loadCategoryData = (newses) => {
   toggleSpinner(false);
 };
 
+// show Details on clicking show details button
 const showNewsDetails = async (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
   const res = await fetch(url);
   const data = await res.json();
   loadNewsDetails(data.data[0]);
-  console.log(data);
+  // console.log(data);
 };
 const loadNewsDetails = (details) => {
   // console.log(details);
