@@ -1,10 +1,13 @@
-// fetch api data for categories
+// get api data for categories
 const showCategory = async () => {
   const url = "https://openapi.programming-hero.com/api/news/categories";
-  const res = await fetch(url);
-  const data = await res.json();
-  loadCategory(data.data.news_category);
-  // console.log(data.data.news_category);
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    loadCategory(data.data.news_category);
+  } catch (error) {
+    console.log(error);
+  }
 };
 // add home li on the ul container
 const categoryContainer = document.getElementById("category-container");
@@ -28,7 +31,6 @@ const loadCategory = (categories) => {
     const newLi = document.createElement("li");
     newLi.classList.add("mx-4");
     newLi.innerText = `${category.category_name}`;
-    // console.log(category);
     categoryContainer.appendChild(newLi);
   });
 };
@@ -36,15 +38,17 @@ const loadCategory = (categories) => {
 // show News-Counter
 const showNewsCounter = async (count_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${count_id} `;
-  const res = await fetch(url);
-  const data = await res.json();
-  loadNewsCounter(data.data);
-  // needToSort(data.data);
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    loadNewsCounter(data.data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 const newsCounter = document.getElementById("news-counter");
 const noMsgFound = document.getElementById("no-found-message");
 const loadNewsCounter = (counter) => {
-  // console.log(counter);
   if (counter.length == 0) {
     noMsgFound.classList.remove("d-none");
     newsCounter.value = ` 0 items found`;
@@ -53,12 +57,15 @@ const loadNewsCounter = (counter) => {
     noMsgFound.classList.add("d-none");
   }
 };
-
 const showCategoryData = async (category_id) => {
   const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  loadCategoryData(data.data);
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    loadCategoryData(data.data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // display news to the UI
@@ -73,7 +80,6 @@ const loadCategoryData = (newses) => {
     return 0;
   }
   newses.sort(compare);
-  console.log(newses);
   const displayNews = document.getElementById("display-news");
   displayNews.textContent = "";
   newses.forEach((news) => {
@@ -139,16 +145,18 @@ const loadCategoryData = (newses) => {
 };
 
 // show Details on clicking show details button
-
 const showNewsDetails = async (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
-  const res = await fetch(url);
-  const data = await res.json();
-  loadNewsDetails(data.data[0]);
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    loadNewsDetails(data.data[0]);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const loadNewsDetails = (details) => {
-  // console.log(details);
   const modalTitle = document.getElementById("modal-title");
   modalTitle.innerHTML = ` ${details.title}`;
   const modalBody = document.getElementById("modal-body");
