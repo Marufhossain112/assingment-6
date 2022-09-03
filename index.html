@@ -25,7 +25,7 @@
       <!-- header starts here -->
       <header class="d-flex justify-content-between mt-4">
         <nav>
-          <span class="heading me-2">News</span>
+          <span class="news-title me-2">News</span>
           <span class="news-today">Today</span>
         </nav>
         <nav>
@@ -40,6 +40,27 @@
       <section class="category">
         <div>
           <ul id="category-container" class="d-flex list-unstyled"></ul>
+        </div>
+      </section>
+
+      <!-- news-counter section -->
+      <section>
+        <div class="input-group mt-5">
+          <input
+            id="news-counter"
+            type="text"
+            class="form-control"
+            placeholder="items found"
+            aria-label="Dollar amount (with dot and two decimal places)"
+          />
+        </div>
+      </section>
+      <!-- 3.no found Message -->
+      <section>
+        <div id="no-found-message" class="d-none">
+          <h1 class="text-warning mt-2 ms-0">
+            No News found. Please try again.
+          </h1>
         </div>
       </section>
 
@@ -98,52 +119,7 @@
       <!-- display news here -->
       <section class="displayNews">
         <div id="display-news" class="pt-5">
-          <!-- <div
-            id="news-item"
-            class="card mb-3 border-0 shadow-lg rounded-3 d-none"
-          >
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img
-                  id="news-img"
-                  style="height: 250px; width: 250px"
-                  src=""
-                  class="img-fluid rounded-start"
-                  alt="..."
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 id="news-heading" class="card-title">Card title</h5>
-                  <p id="news-text" class="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <div class="d-flex align-items-center">
-                    <div id="viewers" class="d-flex me-5 pe-5">
-                      <div class="me-2">
-                        <img
-                          style="height: 30px; border-radius: 50%; width: 30px"
-                          src=""
-                          alt=""
-                        />
-                      </div>
-                      <div>
-                        <h6 class="m-0">Maruf Hossain</h6>
-                        <p class="m-0">31-12-1993</p>
-                      </div>
-                    </div>
-                    <div id="views">
-                      <div class="count-people">
-                        <i class="fa-regular fa-eye"></i> 1.5M
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
+         
         </div>
       </section>
     </div>
