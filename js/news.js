@@ -94,7 +94,7 @@ const loadCategoryData = (newses) => {
         <div class="card-body pt-5">
           <h5 id="news-heading" class="card-title">${news.title}</h5>
           <p id="news-text" class="card-text">
-           ${news.details.slice(0, 300)}
+           ${news.details.slice(0, 300)}...
           </p>
           <div class="d-flex align-items-center">
             <div id="viewers" class="d-flex me-5 pe-5">
@@ -106,15 +106,21 @@ const loadCategoryData = (newses) => {
                 />
               </div>
               <div>
-                <h6 class="m-0">${news.author.name}</h6>
+                <h6 class="m-0 author-name">${
+                  news.author.name ? news.author.name : "No data found"
+                }</h6>
                 <p class="mt-1" style="color:#718797;font-size:14px;">${
                   news.author.published_date
+                    ? news.author.published_date
+                    : "No data found"
                 }</p>
               </div>
             </div>
             <div id="views">
               <div class="count-people">
-                <i class="fa-regular fa-eye me-2"></i> ${news.total_view}
+                <i class="fa-regular fa-eye me-2"></i> ${
+                  news.total_view ? news.total_view : "No data found"
+                }
               </div>
             </div>
             <button id="show-details" class="btn btn-primary ms-5" onclick="showNewsDetails('${
@@ -133,13 +139,14 @@ const loadCategoryData = (newses) => {
 };
 
 // show Details on clicking show details button
+
 const showNewsDetails = async (news_id) => {
   const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
   const res = await fetch(url);
   const data = await res.json();
   loadNewsDetails(data.data[0]);
-  // console.log(data);
 };
+
 const loadNewsDetails = (details) => {
   // console.log(details);
   const modalTitle = document.getElementById("modal-title");
