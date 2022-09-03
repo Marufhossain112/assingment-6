@@ -18,6 +18,24 @@ body {
 .news-today {
   color: var(--primary-color);
 }
-ul li.me-4{
-    color: var(--primary-color);
+ul li.me-4 {
+  color: var(--primary-color);
+}
+
+/* media query for mobile devices */
+@media only screen and (max-width: 600px) {
+  .news-ul {
+    flex-direction: column;
+  }
+  #news-img {
+    display: flex;
+    justify-content: center;
+  }
+  .card-body{
+    padding-top: 10px !important;
+    text-align: center;
+  }
+  #category-container li{
+    margin: 4px 0;
+  }
 }

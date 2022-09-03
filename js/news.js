@@ -87,14 +87,15 @@ const loadCategoryData = (newses) => {
     newDiv.classList.add("card", "my-5", "border-0", "shadow-lg", "rounded-3");
     newDiv.innerHTML = `
     <div class="row g-0">
-      <div class="col-md-4">
+      <div  id="news-img" class="col-md-4">
+      <div>
         <img
-          id="news-img"
           style="height: 250px; width: 250px"
           src=${news.image_url}
           class="img-fluid rounded-start p-3"
           alt="..."
         />
+      </div>
       </div>
       <div class="col-md-8">
         <div class="card-body pt-5">
