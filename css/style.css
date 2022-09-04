@@ -21,6 +21,16 @@ body {
 ul li.me-4 {
   color: var(--primary-color);
 }
+/* media query for extra small devices */
+@media screen and (max-width: 410px) {
+  #show-details {
+    margin-left: 0.5rem !important;
+  }
+  #viewers {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+}
 
 /* media query for mobile devices */
 @media only screen and (max-width: 600px) {
@@ -31,11 +41,11 @@ ul li.me-4 {
     display: flex;
     justify-content: center;
   }
-  .card-body{
+  .card-body {
     padding-top: 10px !important;
     text-align: center;
   }
-  #category-container li{
+  #category-container li {
     margin: 4px 0;
   }
 }
