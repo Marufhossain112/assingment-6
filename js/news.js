@@ -179,5 +179,7 @@ const toggleSpinner = (isLoading) => {
     spinnerIcon.classList.add("d-none");
   }
 };
-
+// show one category by default
+showCategoryData("08");
+// call the whole function
 showCategory();
